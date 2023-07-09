@@ -48,7 +48,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <>
-          {/* <Navigation web3Handler={web3Handler} account={account} /> */}
+          <Navigation web3Handler={web3Handler} account={account} />
         </>
         <div>
           
