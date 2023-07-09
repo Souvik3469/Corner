@@ -114,7 +114,7 @@ describe("NFTMarketplace", function () {
       await marketplace.connect(addr1).makeItem(nft.address, 1 , toWei(price))
     })
     it("Should update item as sold, pay seller, transfer NFT to buyer, charge fees and emit a Bought event", async function () {
-      const gasFee = .000000000002
+      //const gasFee = .000000000002
       const sellerInitalEthBal = await addr1.getBalance()
       const feeAccountInitialEthBal = await deployer.getBalance()
      
@@ -137,7 +137,7 @@ describe("NFTMarketplace", function () {
       .
       expect(+fromWei(sellerFinalEthBal)).to.equal(+price + +fromWei(sellerInitalEthBal))
 
-      expect(+fromWei(feeAccountFinalEthBal)).to.equal(+fee + +fromWei(feeAccountInitialEthBal)-gasFee)
+      expect(+fromWei(feeAccountFinalEthBal)).to.equal(+fee + +fromWei(feeAccountInitialEthBal))
 
       expect(await nft.ownerOf(1)).to.equal(addr2.address);
     })
