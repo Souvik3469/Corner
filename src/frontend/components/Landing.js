@@ -6,7 +6,8 @@ import Why from './Why';
 function Landing() {
      const myStyle={
         backgroundImage:
- "url('https://wallpaperaccess.com/full/33110.jpg')",
+ "url('https://cdn.wallpapersafari.com/99/98/G10at9.jpg')",
+ //'https://c0.wallpaperflare.com/preview/815/393/126/4k-wallpaper-audi-audi-r8-automobile.jpg
         height:'66vh',
         width:'100%',
         backgroundSize:'cover',
@@ -21,7 +22,7 @@ function Landing() {
   return (
     <div className='bg-stone-200'>
       <div className='flex justify-center'>
-        <div className='absolute z-10 left-2 drop-shadow-lg shadow-black pb-10  top-20 px-12 text-stone-900 text-7xl font-extrabold '>
+        <div className='absolute z-10 left-2 drop-shadow-lg shadow-black pb-10  top-24 px-12 text-white text-7xl font-extrabold '>
            <div>
             Get
            </div>
