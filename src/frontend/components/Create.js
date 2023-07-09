@@ -117,7 +117,7 @@ const Create = ({ marketplace, nft }) => {
     // const uri = `https://ipfs.infura.io/ipfs/${result.path}`
     // mint nft 
     await (await nft.mint(uri)).wait()
-    // get tokenId of new nft 
+    
     const id = await nft.tokenCount()
     // approve marketplace to spend nft
     await (await nft.setApprovalForAll(marketplace.address, true)).wait()
@@ -128,7 +128,7 @@ const Create = ({ marketplace, nft }) => {
   return (
 
     <div className="container-fluid mt-4">
-      <h1 className="text-center text-green-500 font-bold mb-6">Create NFT</h1>
+      <h1 className="text-center text-green-500 font-extrabold mb-6">Create NFT</h1>
       <div className="row">
         <main role="main" className="col-lg-12 ml-12 " style={{ maxWidth: '600px' }}>
           <div className="content mx-auto">
@@ -138,9 +138,7 @@ const Create = ({ marketplace, nft }) => {
               <Form.Control onChange={(e) => setDescription(e.target.value)} size="lg" required as="textarea" placeholder="Description" />
               <Form.Control onChange={(e) => setPrice(e.target.value)} size="lg" required type="number" placeholder="Price in ETH" />
               <div className="d-grid px-0">
-                {/* <Button onClick={sendFileToIPFS} variant="primary" size="lg">
-                  Create & List NFT!
-                </Button> */}
+              
 
                 <button className="bg-green-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full" onClick={sendFileToIPFS}>
    Create & List NFT!
