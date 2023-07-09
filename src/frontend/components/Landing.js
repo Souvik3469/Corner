@@ -2,6 +2,7 @@ import React from 'react'
 import car1 from "./car1.jpg"
 import CarCard from './Card';
 import { Button } from '@mui/material';
+import Why from './Why';
 function Landing() {
      const myStyle={
         backgroundImage:
@@ -144,14 +145,22 @@ function Landing() {
         </div>
     </div>
       </div>
-      <div className='bg-white  flex'>
+      <div className='bg-white p-10 flex'>
         <div className=''>
         <img width={800} className='bg-stone-300 '  src="https://imgd.aeplcdn.com/0X0/n/cw/ec/47051/compass-exterior-right-front-three-quarter-73.jpeg?isig=0&q=75"/>
         </div>
-       <div className='w-1/2 flex items-center font-bold m-2 p-1 drop-shadow-lg'>
-        Decentralized car buying features are a revolutionary concept that leverages blockchain technology to transform the traditional car buying process. By utilizing the decentralized nature of blockchain, these features aim to enhance transparency, security, and efficiency in car transactions while empowering both buyers and sellers.
-       </div>
+     <div className='flex flex-col'>
+     <div className=' h-1/2 mt-1 text-4xl flex items-center font-bold m-2 p-1 drop-shadow-lg'>
+        Get the Best Car , Escpecially 
+        
+        <br>
+        </br>
+        Handpicked for You 
+        </div>
+        <div className='w-[700px] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eros dui, vulputate sed suscipit at, sollicitudin non tellus. Pellentesque et libero volutpat, dapibus tortor ut, vehicula enim. Fusce ut vulputate magna. Nullam elementum lorem ut ullamcorper tincidunt. Vestibulum et sollicitudin ex. Vivamus pretium tempor sapien, vitae laoreet risus vulputate id. Maecenas iaculis nec nulla in facilisis. Nunc felis sapien, condimentum id malesuada sit amet, ullamcorper sit amet ipsum. Etiam sollicitudin convallis turpis, ut euismod ante fermentum non. Proin ultrices nisi id libero commodo, ac elementum est posuere.</div>
+     </div>
       </div>
+      <Why/>
     </div>
   )
 }
