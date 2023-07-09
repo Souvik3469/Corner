@@ -127,9 +127,10 @@ const Create = ({ marketplace, nft }) => {
   }
   return (
 
-    <div className="container-fluid mt-5">
+    <div className="container-fluid mt-4">
+      <h1 className="text-center text-green-500 font-bold mb-6">Create NFT</h1>
       <div className="row">
-        <main role="main" className="col-lg-12 mx-auto" style={{ maxWidth: '1000px' }}>
+        <main role="main" className="col-lg-12 ml-12 " style={{ maxWidth: '600px' }}>
           <div className="content mx-auto">
             <Row className="g-4">
               <Form.Control onChange={(e) => setFile(e.target.files[0])} size="lg" required type="file" name="file" />
@@ -137,9 +138,13 @@ const Create = ({ marketplace, nft }) => {
               <Form.Control onChange={(e) => setDescription(e.target.value)} size="lg" required as="textarea" placeholder="Description" />
               <Form.Control onChange={(e) => setPrice(e.target.value)} size="lg" required type="number" placeholder="Price in ETH" />
               <div className="d-grid px-0">
-                <Button onClick={sendFileToIPFS} variant="primary" size="lg">
+                {/* <Button onClick={sendFileToIPFS} variant="primary" size="lg">
                   Create & List NFT!
-                </Button>
+                </Button> */}
+
+                <button className="bg-green-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full" onClick={sendFileToIPFS}>
+   Create & List NFT!
+</button>
               </div>
             </Row>
           </div>

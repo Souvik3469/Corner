@@ -48,7 +48,17 @@ const Home = ({ marketplace, nft }) => {
     </main>
   )
   return (
-    <div className="flex justify-center">
+    <div className="flex-col items-center">
+      <div className="">
+        <img
+        className=" w-[220vh] h-[70vh]"
+        src="https://www.wallpaperflare.com/static/260/260/859/alfa-romeo-red-cars-landscape-sunlight-wallpaper.jpg"
+        alt='image'
+        
+   
+   />
+      </div>
+
       {items.length > 0 ?
         <div className="px-5 container">
           <Row xs={1} md={2} lg={4} className="g-4 py-5">
