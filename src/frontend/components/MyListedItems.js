@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { ethers } from "ethers"
-import { Row, Col, Card } from 'react-bootstrap'
+import { Row, Col, Card, Spinner } from 'react-bootstrap'
+import Loader from './Loader'
 
 function renderSoldItems(items) {
   return (
@@ -63,9 +64,7 @@ export default function MyListedItems({ marketplace, nft, account }) {
     loadListedItems()
   }, [])
   if (loading) return (
-    <main style={{ padding: "1rem 0" }}>
-      <h2>Loading...</h2>
-    </main>
+    <Loader/>
   )
   return (
     <div className="flex justify-center">

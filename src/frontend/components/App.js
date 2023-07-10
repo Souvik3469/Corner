@@ -16,6 +16,7 @@ import Home from './Home.js'
 import Create from './Create.js'
 import MyListedItems from './MyListedItems.js'
 import MyPurchases from './MyPurchases.js'
+import Cardetails from './Cardetails.js'
 import { Spinner } from 'react-bootstrap'
 import Landing from "./Landing";
  
@@ -50,7 +51,12 @@ function App() {
         <>
           <Navigation web3Handler={web3Handler} account={account} />
         </>
-        <div>
+      {
+        loading ? <div className="spinner-container">
+          <Spinner animation="border" variant="primary" />
+          
+        </div> :
+            <div>
           
             <Routes>
                 <Route path="/" element={
@@ -70,9 +76,15 @@ function App() {
                 <Route path="/my-purchases" element={
                 <MyPurchases marketplace={marketplace} nft={nft} account={account} />
               } />
+              <Route path="/cardetails" element={
+                <Cardetails />
+              } />
+
+                
             </Routes>
         
         </div>
+      }
       </div>
     </BrowserRouter>
   );
