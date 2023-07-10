@@ -95,7 +95,7 @@ function CarCard({
     size="medium"
    onClick={()=>{buyMarketItem(item)}}
     >
-    Buy for 7.5 ETH
+    Buy for {carPrice}ETH
     </Button>
 
               </div>

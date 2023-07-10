@@ -12,11 +12,11 @@ const Navigation = ({ web3Handler, account }) => {
         setSelected(path);
     }, [selected])
     return (
-        <div className="bg-zinc-900 flex items-center justify-between p-2">
+        <div className="bg-zinc-900 sticky top-0 flex items-center justify-between p-3">
             <Link to="/" 
             onClick={() => setSelected('/')}
             style={{ textDecoration: 'none' }}>
-            <div className="text-white font-bold text-2xl pl-6">
+            <div className="text-white font-extrabold text-4xl pl-6">
         Corner
             </div>
             </Link>
