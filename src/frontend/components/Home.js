@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import { Row, Col, Card, Button } from "react-bootstrap";
+import { Row, Col, Card, Button, Spinner } from "react-bootstrap";
 import CarCard from "./Card";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-
+import Lottie from "lottie-react";
+import Loader from "./Loader";
 const Home = ({ marketplace, nft }) => {
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState([]);
@@ -37,21 +37,13 @@ const Home = ({ marketplace, nft }) => {
     setItems(items);
   };
 
-  const buyMarketItem = async (item) => {
-    await (
-      await marketplace.purchaseItem(item.itemId, { value: item.totalPrice })
-    ).wait();
-    loadMarketplaceItems();
-  };
 
   useEffect(() => {
     loadMarketplaceItems();
   }, []);
   if (loading)
     return (
-      <main style={{ padding: "1rem 0" }}>
-        <h2>Loading...</h2>
-      </main>
+      <Loader/>
     );
   return (
     // <div className="flex justify-center">
@@ -86,7 +78,7 @@ const Home = ({ marketplace, nft }) => {
     //       </main>
     //     )}
     // </div>
-    <div className="p-10">
+    <div className="p-10 ">
       <div className="flex items-center">
       
           <img
@@ -113,16 +105,30 @@ const Home = ({ marketplace, nft }) => {
           </div>
         </div>
         </div>
-    
+    <div className="text-5xl font-bold p-4 m-2">Available Listed Cars</div>
       <div className="grid gap-3 grid-cols-4 ">
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
+     {
+      items.length > 0 ? (
+        items.map((item, idx) => {
+          return (
+            <CarCard
+            f={loadMarketplaceItems}
+            item={item}
+            carbuy={false}
+            marketplace={marketplace}
+            nft={nft}
+              key={idx}
+             carImage={item.image}
+             desc={item.description}
+              carName={item.name}
+              carPrice={ethers.utils.formatEther(item.totalPrice)}
+            />
+          );
+        })
+      ) :(  <div className="text-5xl font-bold p-4 m-2">
+        Sorry No Listed Cars
+      </div>)
+     }
       </div>
     </div>
   );

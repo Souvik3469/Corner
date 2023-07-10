@@ -51,7 +51,12 @@ function App() {
         <>
           <Navigation web3Handler={web3Handler} account={account} />
         </>
-        <div>
+      {
+        loading ? <div className="spinner-container">
+          <Spinner animation="border" variant="primary" />
+          
+        </div> :
+            <div>
           
             <Routes>
                 <Route path="/" element={
@@ -79,6 +84,7 @@ function App() {
             </Routes>
         
         </div>
+      }
       </div>
     </BrowserRouter>
   );

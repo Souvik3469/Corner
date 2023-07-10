@@ -1,15 +1,21 @@
 import axios from 'axios';
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { ethers } from "ethers"
 import { Row, Form, Button } from 'react-bootstrap'
 // import { create as ipfsHttpClient } from 'ipfs-http-client'
+import Lottie from "react-lottie-player";
 // const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
-
+import datajson from "./car.json"
+import { Input, TextField } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom/dist';
 const Create = ({ marketplace, nft }) => {
-  const [fileImg, setFile] = useState(null);
+    const router = useNavigate()
+  const [fileImg, setFile] = useState();
   const [name, setName] = useState("")
   const [desc, setDescription] = useState("")
   const [price, setPrice] = useState("")
+  const [display, setDisplay] = useState(false)
+  
   // const uploadToIPFS = async (event) => {
   //   event.preventDefault()
   //   const file = event.target.files[0]
@@ -54,6 +60,7 @@ const Create = ({ marketplace, nft }) => {
       console.log("Token URI", tokenURI);
       //mintNFT(tokenURI, currentAccount)   // pass the winner
       mintThenList(tokenURI)
+      
     } catch (error) {
       console.log("JSON to IPFS: ")
       console.log(error);
@@ -63,7 +70,6 @@ const Create = ({ marketplace, nft }) => {
   }
 
 
-  ////////////////////////////////////////////////////////
 
   const sendFileToIPFS = async (e) => {
 
@@ -93,7 +99,8 @@ const Create = ({ marketplace, nft }) => {
         const ImgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
         console.log(ImgHash);
         sendJSONtoIPFS(ImgHash)
-
+        setDisplay(true)
+        
 
       } catch (error) {
         console.log("File to IPFS: ")
@@ -113,6 +120,7 @@ const Create = ({ marketplace, nft }) => {
   //     console.log("ipfs uri upload error: ", error)
   //   }
   // }
+
   const mintThenList = async (uri) => {
     // const uri = `https://ipfs.infura.io/ipfs/${result.path}`
     // mint nft 
@@ -124,33 +132,53 @@ const Create = ({ marketplace, nft }) => {
     // add nft to marketplace
     const listingPrice = ethers.utils.parseEther(price.toString())
     await (await marketplace.makeItem(nft.address, id, listingPrice)).wait()
+    
+    
   }
   return (
 
-    <div className="container-fluid mt-4">
-      <h1 className="text-center text-green-500 font-extrabold mb-6">Create NFT</h1>
-      <div className="row">
-        <main role="main" className="col-lg-12 ml-12 " style={{ maxWidth: '600px' }}>
-          <div className="content mx-auto">
-            <Row className="g-4">
-              <Form.Control onChange={(e) => setFile(e.target.files[0])} size="lg" required type="file" name="file" />
-              <Form.Control onChange={(e) => setName(e.target.value)} size="lg" required type="text" placeholder="Name" />
-              <Form.Control onChange={(e) => setDescription(e.target.value)} size="lg" required as="textarea" placeholder="Description" />
-              <Form.Control onChange={(e) => setPrice(e.target.value)} size="lg" required type="number" placeholder="Price in ETH" />
-              <div className="d-grid px-0">
-              
-                
-                <button className="bg-green-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full" onClick={sendFileToIPFS}>
-   Create & List NFT!
-</button>
-              </div>
-            </Row>
-          </div>
-        </main>
+<div >
+<div className='flex flex-col justify-center my-20'>
+    <h1 className="text-6xl font-extrabold py-2">Enlist Your Car</h1>
+    <div >
+      
+     <div className='flex items-center justify-center'>
+     <div className='flex flex-col w-1/3 gap-4 p-10 '>
+     
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white p-2" for="file_input">Upload file</label>
+<input onChange={(e) =>setFile(e.target.files[0]) } class="block w-full text-sm text-gray-900 border border-gray-600 rounded-lg border-2  cursor-pointer dark:text-gray-200 focus:outline-none text-black p-2" id="file_input" type="file"/>
+      <TextField id="outlined-basic" label="Description" variant="outlined" onChange={(e) => setDescription(e.target.value)} />
+      <TextField id="outlined-basic" label="Name" variant="outlined" onChange={(e) => setName(e.target.value)}  />
+<TextField id="outlined-basic" label="ETH" variant="outlined" onChange={(e) => setPrice(e.target.value)}  />
+
+<Button onClick={sendFileToIPFS} disabled={display}   className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full' >
+  Enlist
+</Button>
+<Link to='/my-listed-items'>
+<Button     className='bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full' >
+  Go to listings
+</Button>
+</  Link>
+
+      </div>
+ 
+      <div>
+        <Lottie
+        animationData={datajson}
+        play
+        style={{ width: 700, height: 300 }}
+        />
+      </div>
       </div>
     </div>
+  </div>
+</div>
     
     )
 }
 
 export default Create
+// < onChange={(e) => setFile(e.target.files[0])} size="lg" required type="file" name="file" />
+// <Form.Control onChange={(e) => setName(e.target.value)} size="lg" required type="text" placeholder="Name" />
+// <Form.Control onChange={(e) => setDescription(e.target.value)} size="lg" required as="textarea" placeholder="Description" />
+// <Form.Control onChange={(e) => setPrice(e.target.value)} size="lg" required type="number" placeholder="Price in ETH" />

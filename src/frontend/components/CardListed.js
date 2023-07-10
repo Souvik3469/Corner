@@ -15,7 +15,7 @@ const style = {
   p: 4,
 };
 
-function CarCard({
+function Carop({
   carName,
   carImage,
   carPrice,
@@ -108,4 +108,4 @@ function CarCard({
   )
 }
 
-export default CarCard
+export default Carop
