@@ -147,8 +147,10 @@ const Create = ({ marketplace, nft }) => {
      
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white p-2" for="file_input">Upload file</label>
 <input onChange={(e) =>setFile(e.target.files[0]) } class="block w-full text-sm text-gray-900 border border-gray-600 rounded-lg border-2  cursor-pointer dark:text-gray-200 focus:outline-none text-black p-2" id="file_input" type="file"/>
-      <TextField id="outlined-basic" label="Description" variant="outlined" onChange={(e) => setDescription(e.target.value)} />
-      <TextField id="outlined-basic" label="Name" variant="outlined" onChange={(e) => setName(e.target.value)}  />
+<TextField id="outlined-basic" label="Name" variant="outlined" onChange={(e) => setName(e.target.value)}  />
+    
+     <TextField id="outlined-basic" label="Description" variant="outlined" onChange={(e) => setDescription(e.target.value)} />
+      
 <TextField id="outlined-basic" label="ETH" variant="outlined" onChange={(e) => setPrice(e.target.value)}  />
 
 <Button onClick={sendFileToIPFS} disabled={display}   className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full' >

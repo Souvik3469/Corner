@@ -92,16 +92,16 @@ const Home = ({ marketplace, nft }) => {
             <h1 className="text-6xl font-bold text-blue-500 ">Decentralized</h1>
           </div>
         <div className="flex text-6xl font-bold justify-around gap-2 ">
-            <h1 className="text-4xl font-bold text-orange-500">Buy </h1>
+            <h1 className="text-5xl font-bold text-orange-500">Buy </h1>
             
-            <h1 className="text-4xl font-semibold text-blue-500">&</h1>
+            <h1 className="text-5xl font-bold text-orange-500">&</h1>
         
             
-            <h1 className="text-4xl font-bold  text-orange-500">Sell</h1>
+            <h1 className="text-5xl font-bold  text-orange-500">Sell</h1>
 
           </div>
           <div>
-            <h1 className="text-6xl font-bold text-blue-500  ">Cars</h1>
+            <h1 className="text-5xl font-bold text-blue-500  ">Cars</h1>
           </div>
         </div>
         </div>
@@ -125,7 +125,7 @@ const Home = ({ marketplace, nft }) => {
             />
           );
         })
-      ) :(  <div className="text-5xl font-bold p-4 m-2">
+      ) :(  <div className="flex items-center text-5xl font-bold p-4 m-2">
         Sorry No Listed Cars
       </div>)
      }
