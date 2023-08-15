@@ -15,7 +15,7 @@ const style = {
   p: 4,
 };
 
-function CarCard({
+function Carop({
   carName,
   carImage,
   carPrice,
@@ -95,7 +95,7 @@ function CarCard({
     size="medium"
    onClick={()=>{buyMarketItem(item)}}
     >
-    Buy for {carPrice}ETH
+    Buy for 7.5 ETH
     </Button>
 
               </div>
@@ -108,4 +108,4 @@ function CarCard({
   )
 }
 
-export default CarCard
+export default Carop
