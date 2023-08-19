@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import car1 from "./car1.jpg"
 import CarCard from './Card';
-import { Button, Typography } from '@mui/material';
+//import { Button, Typography } from '@mui/material';
 import Why from './Why';
 import axios from 'axios';
 import News from './News';

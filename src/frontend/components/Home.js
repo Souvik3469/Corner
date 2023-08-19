@@ -131,7 +131,6 @@ const Home = ({ marketplace, nft }) => {
      }
       </div>
     </div>
-  
   );
 };
 export default Home;
