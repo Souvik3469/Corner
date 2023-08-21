@@ -1,0 +1,4 @@
+command for running hardhat 
+npx hardhat node
+npx hardhat run src/backend/scripts/deploy.js --network localhost
+npx hardhat test--for testing smart contracts
